@@ -22,7 +22,6 @@ process.on("uncaughtException", (err) => {
     });
 });
 
-
 //unhandled promise rejection
 process.on("unhandledRejection", (err) => {
     console.log(`Error : ${err.message}`);
