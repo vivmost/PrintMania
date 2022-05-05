@@ -33,5 +33,5 @@ CLOUDINARY_API_SECRET,
 _fill each field with your info respectively_
 
 # Demo Account(Customer) for usage:
- Login ID - fordemo@gmail.com
+ Login ID - fordemo@gmail.com  
  Password - fordemoPassword
