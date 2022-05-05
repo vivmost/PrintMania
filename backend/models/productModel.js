@@ -1,69 +1,81 @@
 const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema({
-    name: {
-        type : String,
-        required : [true, "Please enter product name"]
+  name: {
+    type: String,
+    required: [true, "Please Enter The Product Name"],
+    trim: true,
+  },
+  description: {
+    type: String,
+    required: [true, "Please Enter The Product Description"],
+  },
+  price: {
+    type: Number,
+    required: [true, "Please Enter The Product Price"],
+    maxLength: [5, "Price Cannot Exceed 5 Characters"],
+  },
+  ratings: {
+    type: Number,
+    default: 0,
+  },
+  images: [
+    {
+      public_id: {
+        type: String,
+        required: true,
+      },
+      url: {
+        type: String,
+        required: true,
+      },
     },
-    description : {
-        type : String,
-        required : [true, "Please enter procuct description"]
+  ],
+  category: {
+    type: String,
+    required: [true, "Please Enter The Product Category"],
+  },
+  Stock: {
+    type: Number,
+    required: [true, "Please Enter The Product Count"],
+    maxLength: [6, "Stock Cannot Exceed 6 Characters"],
+    default: 1,
+  },
+  numOfReviews: {
+    type: Number,
+    default: 0,
+  },
+  reviews: [
+    {
+      user: {
+        type: mongoose.Schema.ObjectId,
+        ref: "User",
+        required: true,
+      },
+      name: {
+        type: String,
+        required: true,
+      },
+      rating: {
+        type: Number,
+        required: true,
+      },
+      comment: {
+        type: String,
+        required: true,
+      },
     },
-    price: {
-        type : String,
-        required : [true, "Please enter product price"],
-        maxLength: [8, "Price can't exceed 8 characters"]
-    }, 
-    rating: {
-        type : Number,
-        default : 0
-    },
-    images : [
-        {
-            public_id : {
-                type : String, 
-                required : true
-            },
-             uri : {
-                type : String, 
-                required : true
-             }
-        }
-    ],
-    category : {
-        type : String,
-        required : [true, "Please enter product category"]
-    },
-    stock : {
-        type : Number,
-        required : [true, "Please enter product stock"],
-        maxLength: [4, "Stock can't exceed 4 characters"],
-        default : 1
-    },
-    numOfReviews : {
-        type : Number,
-        default : 0
-    },
-     reviews: [
-         {
-             name : {
-                type : String,
-                required : true
-             },
-             rating : {
-                type : String,
-                required : true
-             },
-             comment : {
-                type : String,
-                required : true
-             }
-         }
-     ],
-     createdAt : {
-         type : Date,
-         default : Date.now
-     }
-})
+  ],
 
-module.exports = mongoose.model("Product", productSchema)
+  user: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+module.exports = mongoose.model("Product", productSchema);
