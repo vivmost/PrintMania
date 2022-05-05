@@ -30,8 +30,5 @@ SMPT_PORT,
 CLOUDINARY_NAME,  
 CLOUDINARY_API_KEY,  
 CLOUDINARY_API_SECRET,  
-<<<<<<< HEAD
 _fill each field with your info respectively_
-=======
-_fill each field with your info respectively_
->>>>>>> 695ef24d2b531510dae76faea2d70ccf0b38e841
+
