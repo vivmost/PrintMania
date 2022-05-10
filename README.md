@@ -34,4 +34,4 @@ _fill each field with your info respectively_
 
 # Demo Account(Customer) for usage:
  Login ID - fordemo@gmail.com  
- Password - fordemoPassword
+ Password - forDemoPassword
